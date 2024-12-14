@@ -17,7 +17,14 @@ public class Ubicaciones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String descripcion;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_ubicacion", nullable = false)
     private TipoUbicacion tipoUbicacion;
+
+    @Column(nullable = false)
     private int capacidad;
 }

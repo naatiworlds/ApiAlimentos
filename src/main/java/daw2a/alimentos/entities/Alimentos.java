@@ -21,8 +21,16 @@ public class Alimentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String nombre;
+
+    @Enumerated(EnumType.STRING)
     private Tipo tipo;
+
+    @Enumerated(EnumType.STRING)
     private Estado estado;
-    private Date caducidad;
+
+    @Column(name = "fecha_caducidad", nullable = false)
+    private Date fechaCaducidad;
 }

@@ -18,8 +18,18 @@ public class Existencias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int alimento_id;
-    private int ubicaciones_id;
+
+    @ManyToOne
+    @JoinColumn(name = "alimento_id", nullable = false)
+    private Alimentos alimento;
+
+    @ManyToOne
+    @JoinColumn(name = "ubicacion_id", nullable = false)
+    private Ubicaciones ubicacion;
+
+    @Column(nullable = false)
     private int cantidad;
-    private Date fecha_entrada;
+
+    @Column(name = "fecha_entrada", nullable = false)
+    private Date fechaEntrada;
 }

@@ -40,10 +40,10 @@ public class ExistenciasService {
     // Actualizar existencia por Id y establecer nuevos valores
     public Existencias actualizarExistencia(Long id, Existencias existenciaActualizada) {
         return existenciasRepository.findById(id).map(existencia -> {
-            Optional.ofNullable(existenciaActualizada.getAlimento_id()).ifPresent(existencia::setAlimento_id);
-            Optional.ofNullable(existenciaActualizada.getUbicaciones_id()).ifPresent(existencia::setUbicaciones_id);
+            Optional.ofNullable(existenciaActualizada.getAlimento()).ifPresent(existencia::setAlimento);
+            Optional.ofNullable(existenciaActualizada.getUbicacion()).ifPresent(existencia::setUbicacion);
             Optional.ofNullable(existenciaActualizada.getCantidad()).ifPresent(existencia::setCantidad);
-            Optional.ofNullable(existenciaActualizada.getFecha_entrada()).ifPresent(existencia::setFecha_entrada);
+            Optional.ofNullable(existenciaActualizada.getFechaEntrada()).ifPresent(existencia::setFechaEntrada);
 
             return existenciasRepository.save(existencia);
         }).orElseThrow(() -> new NoSuchElementException("Existencia no encontrada con id " + id));

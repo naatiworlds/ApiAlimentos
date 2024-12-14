@@ -43,7 +43,7 @@ public class AlimentosService {
             Optional.of(alimentoActualizada.getNombre()).ifPresent(alimento::setNombre);
             Optional.of(alimentoActualizada.getTipo()).ifPresent(alimento::setTipo);
             Optional.of(alimentoActualizada.getEstado()).ifPresent(alimento::setEstado);
-            Optional.of(alimentoActualizada.getCaducidad()).ifPresent(alimento::setCaducidad);
+            Optional.of(alimentoActualizada.getFechaCaducidad()).ifPresent(alimento::setFechaCaducidad);
 
             return alimentoRepository.save(alimento);
         }).orElseThrow(() -> new NoSuchElementException("Alimento no encontrado con id " + id));
